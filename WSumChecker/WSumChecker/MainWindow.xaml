@@ -47,7 +47,13 @@
             <TabItem Header="Verify Checksum" Name="Verify_Checksum">
                 <Grid>
                     <Border BorderBrush="Orange" BorderThickness="3"></Border>
-                    </Grid>
+                    <Label Name="VC_LChooseFile" Content="Choose the file to verify : " MaxHeight="30" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="90,29,496,458" Width="300" FontSize="14" />
+                    <TextBox Name="VC_FFilePath" Text="" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="500" MinWidth="500" MaxHeight="35" MinHeight="35" Margin="90,59,296,423" FontSize="14" BorderBrush="LightBlue" BorderThickness="5"/>
+                    <Button Name="VC_BFileSearch" Content="Search..." VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="681,59,80,423" BorderBrush="Gray" BorderThickness="5"/>
+                    <Label Name="VC_CompareSum" Content="Checksum to compare with : " MaxHeight="30" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="89,109,497,383" Width="300" FontSize="14" />
+                    <TextBox Name="VC_CheckSum" Text="" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="500" MinWidth="300" MaxHeight="35" MinHeight="35" Margin="89,136,297,345" FontSize="14" BorderBrush="Gray" BorderThickness="5"/>
+                    <Button Name="VC_CheckSumClipboard" Content="From Clipboard" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="681,136,80,345" BorderBrush="Gray" BorderThickness="5"/>
+                </Grid>
             </TabItem>
                 <TabItem Header="Compare Files" Name="Compare_Files"/>
             <TabItem Header="String Hashing" Name="String_Hashing"/>
