@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace WSumChecker
 {
@@ -23,6 +24,13 @@ namespace WSumChecker
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void CC_BFileSearch_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ccplik = new OpenFileDialog();
+            ccplik.ShowDialog();
+            CC_FFilePath.Text = ccplik.FileName;
         }
     }
 }
