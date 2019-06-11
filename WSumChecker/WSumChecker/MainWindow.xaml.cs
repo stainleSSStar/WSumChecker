@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.IO;
 using System.Security.Cryptography;
+using System.Diagnostics;
+
 
 namespace WSumChecker
 {
@@ -25,7 +27,16 @@ namespace WSumChecker
     {
         public MainWindow()
         {
-            InitializeComponent();
+            String processname = Process.GetCurrentProcess().ProcessName;
+            Process [] prorun = Process.GetProcessesByName(processname);
+            if(prorun.Length > 1){
+                MessageBox.Show("Application is already running!", "Application running!", MessageBoxButton.OK, MessageBoxImage.Stop);
+                Application.Current.Shutdown();
+            }
+            else
+            {
+                InitializeComponent();
+            }
         }
 
         private void CC_BFileSearch_Click(object sender, RoutedEventArgs e)
@@ -83,6 +94,7 @@ namespace WSumChecker
                 MessageBox.Show("No file has been chosen.", "Opening File Cancelled!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         private void CC_FFilePath_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -452,10 +464,58 @@ namespace WSumChecker
                     }
                 }
             }
-            catch(Exception exc)
+            catch(System.ArgumentException exception)
             {
                 MessageBox.Show("Nothing was saved.", "Saving File Cancelled!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+
+        }
+
+        private void Unload(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void About(object sender, RoutedEventArgs e)
+        {
+            var existingWindow = Application.Current.Windows.Cast<Window>().SingleOrDefault(x => x.Title.Equals("About"));
+
+            if (existingWindow == null)
+            {
+                Window About = new WSumChecker.About();
+                About.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                About.Owner = this;
+                About.Show();
+            }
+            else
+            {
+
+                existingWindow.WindowState = WindowState.Normal;
+                existingWindow.Activate();
+            }
+        }
+
+        private void Licence(object sender, RoutedEventArgs e)
+        {
+            var existingWindow = Application.Current.Windows.Cast<Window>().SingleOrDefault(x => x.Title.Equals("Licence"));
+
+            if (existingWindow == null)
+            {
+                Window Licence = new WSumChecker.Licence();
+                Licence.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                Licence.Owner = this;
+                Licence.Show();
+            }
+            else
+            {
+
+                existingWindow.WindowState = WindowState.Normal;
+                existingWindow.Activate();
+            }
+        }
+
+        private void Changelog(object sender, RoutedEventArgs e)
+        {
 
         }
     }

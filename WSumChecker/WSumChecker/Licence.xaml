@@ -1,0 +1,12 @@
+﻿<Window x:Class="WSumChecker.Licence"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WSumChecker"
+        mc:Ignorable="d"
+        Title="Licence" Height="167.443" Width="520.058" MinHeight="167.443" MaxHeight="167.443" MinWidth="520.058" MaxWidth="520.058">
+    <Grid Margin="0,0,426,44">
+
+    </Grid>
+</Window>

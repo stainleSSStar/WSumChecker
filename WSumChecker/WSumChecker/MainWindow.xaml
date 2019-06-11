@@ -9,10 +9,10 @@
 
     <Grid>
         <Menu x:Name="Menu">
-            <MenuItem Header="Changelog"/>
-            <MenuItem Header="Licence"/>
-            <MenuItem Header="About Developer"/>
-            <MenuItem Header="Unload"/>
+            <MenuItem Header="Changelog" Click="Changelog"/>
+            <MenuItem Header="Licence" Click="Licence"/>
+            <MenuItem Header="About Developer" Click="About"/>
+            <MenuItem Header="Unload" Click="Unload"/>
         </Menu>
         <TabControl Margin="0,24,0,0">
             <TabItem Header="Calculate Checksum" Name="Calculate_Checksum">
