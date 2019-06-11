@@ -40,7 +40,7 @@
                     <CheckBox IsChecked="False" Name="CC_CFileSHA512" MaxHeight="20" MaxWidth="20" MinHeight="20" MinWidth="20" Margin="506,264,348,223"/>
                     <Label Name="CC_LFileSHA512" Content="SHA512 Checksum : " MaxHeight="25" MinHeight="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="538,264,48,228" Width="300" FontSize="14" />
                     <TextBox Name="CC_FFileSHA512" Text="" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="300" MinWidth="300" MaxHeight="35" MinHeight="35" Margin="502,294,84,188" FontSize="14" BorderBrush="Gray" BorderThickness="5" IsReadOnly="True" />
-                    <Button Name="CC_BFileExport" Content="Export to File" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="264,386,497,96" BorderBrush="Gray" BorderThickness="5" />
+                    <Button Name="CC_BFileExport" Content="Export to File" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="264,386,497,96" BorderBrush="Gray" BorderThickness="5" Click="CC_BFileExport_Click" />
                     <Button Name="CC_BFileClipboard" Content="Clipboard" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="502,386,259,96" BorderBrush="Gray" BorderThickness="5" Width="125" Click="CC_BFileClipboard_Click" />
                 </Grid>
             </TabItem>
