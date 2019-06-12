@@ -11,7 +11,7 @@
         <Menu x:Name="Menu">
             <MenuItem Header="Changelog" Click="Changelog"/>
             <MenuItem Header="Licence" Click="Licence"/>
-            <MenuItem Header="About Developer" Click="About"/>
+            <MenuItem Header="About" Click="About"/>
             <MenuItem Header="Unload" Click="Unload"/>
         </Menu>
         <TabControl Margin="0,24,0,0">
@@ -22,7 +22,6 @@
                     <TextBox Name="CC_FFilePath" Text="" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="500" MinWidth="500" MaxHeight="35" MinHeight="35" Margin="21,59,365,423" FontSize="14" BorderBrush="LightBlue" BorderThickness="5" KeyDown="CC_FFilePath_KeyDown" LostFocus="CC_FFilePath_LostFocus"/>
                     <Button Name="CC_BFileSearch" Content="Search..." VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="543,59,218,423" BorderBrush="Gray" BorderThickness="5" Click="CC_BFileSearch_Click"/>
                     <Button Name="CC_BFileHash" Content="Hash File" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="690,59,71,423" BorderBrush="Gray" BorderThickness="5" Click="CC_BFileHash_Click"/>
-                    <ProgressBar HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Margin="43,460,43,23" Width="800" MaxHeight="35" MinHeight="35" MaxWidth="800" MinWidth="800" IsIndeterminate="False" Minimum="0" Maximum="100" Value="0" BorderBrush="Gray" BorderThickness="6" Name="CC_Progress"/>
                     <Label Name="CC_LFileSize" Content="File Size : " MaxHeight="25" MinHeight="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="89,109,497,383" Width="300" FontSize="14" />
                     <TextBox Name="CC_FFileSize" Text="" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="300" MinWidth="300" MaxHeight="35" MinHeight="35" Margin="89,139,497,343" FontSize="14" BorderBrush="Gray" BorderThickness="5" IsReadOnly="True" />
                     <CheckBox IsChecked="False" Name="CC_CFileMD5" MaxHeight="20" MaxWidth="20" MinHeight="20" MinWidth="20" Margin="89,193,765,294"/>
@@ -83,7 +82,6 @@
                     <Label Name="SH_LString" Content="Input the string you want to hash :" MaxHeight="30" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="21,24,565,463" Width="300" FontSize="14" />
                     <TextBox Name="SH_FString" Text="" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="500" MinWidth="500" MaxHeight="35" MinHeight="35" Margin="21,59,365,423" FontSize="14" BorderBrush="LightBlue" BorderThickness="5"/>
                     <Button Name="SH_BStringHash" Content="Hash String" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="250" MaxWidth="250" Margin="576,59,60,423" BorderBrush="Gray" BorderThickness="5"/>
-                    <ProgressBar HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Margin="43,460,43,23" Width="800" MaxHeight="35" MinHeight="35" MaxWidth="800" MinWidth="800" IsIndeterminate="False" Minimum="0" Maximum="100" Value="0" BorderBrush="Gray" BorderThickness="6"/>
                     <Label Name="SH_LStringLength" Content="String length : " MaxHeight="30" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="89,109,497,383" Width="300" FontSize="14" />
                     <TextBox Name="SH_FStringLength" Text="" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="300" MinWidth="300" MaxHeight="35" MinHeight="35" Margin="89,139,497,343" FontSize="14" BorderBrush="Gray" BorderThickness="5"/>
                     <Label Name="SH_LStringMD5" Content="MD5 Checksum : " MaxHeight="25" MinHeight="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="89,188,497,304" Width="300" FontSize="14" />

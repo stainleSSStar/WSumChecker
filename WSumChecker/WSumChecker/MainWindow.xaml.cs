@@ -218,119 +218,7 @@ namespace WSumChecker
 
         private void CC_BFileHash_Click(object sender, RoutedEventArgs e)
         {
-            if(File.Exists(CC_FFilePath.Text) == true)
-            {
-                if(CC_CFileMD5.IsChecked == true)
-                {
-                    string CCFILEI = @CC_FFilePath.Text;
-                    string CCFILEO;
-                        using (var md5 = MD5.Create())
-                        {
-                        using (var CCFILELINE = new BufferedStream(File.OpenRead(CCFILEI), 1200000))
-                        {
-                            {
-                                var HASH = md5.ComputeHash(CCFILELINE);
-                                CCFILEO = BitConverter.ToString(HASH).Replace("-", "");
-                                CC_FFileMD5.Text = CCFILEO;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    CC_FFileMD5.Text = "";
-                }
-
-                if (CC_CFileSHA1.IsChecked == true)
-                {
-                    string CCFILEI = @CC_FFilePath.Text;
-                    string CCFILEO;
-                    using (var sha1 = SHA1.Create())
-                    {
-                        using (var CCFILELINE = new BufferedStream(File.OpenRead(CCFILEI), 1200000))
-                        {
-                            {
-                                var HASH = sha1.ComputeHash(CCFILELINE);
-                                CCFILEO = BitConverter.ToString(HASH).Replace("-", "");
-                                CC_FFileSHA1.Text = CCFILEO;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    CC_FFileSHA1.Text = "";
-                }
-
-                    if (CC_CFileSHA256.IsChecked == true)
-                    {
-                        string CCFILEI = @CC_FFilePath.Text;
-                        string CCFILEO;
-                        using (var sha256 = SHA256.Create())
-                        {
-                            using (var CCFILELINE = new BufferedStream(File.OpenRead(CCFILEI), 1200000))
-                            {
-                                {
-                                    var HASH = sha256.ComputeHash(CCFILELINE);
-                                    CCFILEO = BitConverter.ToString(HASH).Replace("-", "");
-                                    CC_FFileSHA256.Text = CCFILEO;
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        CC_FFileSHA256.Text = "";
-                    }
-
-                if (CC_CFileSHA384.IsChecked == true)
-                {
-                    string CCFILEI = @CC_FFilePath.Text;
-                    string CCFILEO;
-                    using (var sha384 = SHA384.Create())
-                    {
-                        using (var CCFILELINE = new BufferedStream(File.OpenRead(CCFILEI), 1200000))
-                        {
-                            {
-                                var HASH = sha384.ComputeHash(CCFILELINE);
-                                CCFILEO = BitConverter.ToString(HASH).Replace("-", "");
-                                CC_FFileSHA384.Text = CCFILEO;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    CC_FFileSHA384.Text = "";
-                }
-
-                if (CC_CFileSHA512.IsChecked == true)
-                {
-                    string CCFILEI = @CC_FFilePath.Text;
-                    string CCFILEO;
-                    using (var sha512 = SHA512.Create())
-                    {
-                        using (var CCFILELINE = new BufferedStream(File.OpenRead(CCFILEI), 1200000))
-                        {
-                            {
-                                var HASH = sha512.ComputeHash(CCFILELINE);
-                                CCFILEO = BitConverter.ToString(HASH).Replace("-", "");
-                                CC_FFileSHA512.Text = CCFILEO;
-                            }
-                        }
-                    }
-
-                    Console.ReadLine();
-                }
-                else
-                {
-                    CC_FFileSHA512.Text = "";
-                }
-            }
-            else
-            {
-                MessageBox.Show("You did not choose any files.", "File Input Error!", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            CC_BFileHash_Thread();
         }
 
         private void CC_BFileClipboard_Click(object sender, RoutedEventArgs e)
@@ -516,7 +404,138 @@ namespace WSumChecker
 
         private void Changelog(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                var fileToOpen = @"CHANGELOG.txt";
+                var process = new Process();
+                process.StartInfo = new ProcessStartInfo()
+                {
+                    UseShellExecute = true,
+                    FileName = fileToOpen
+                };
 
+                process.Start();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Licence file couldn't be loaded", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
+
+        private void CC_BFileHash_Thread()
+        {
+                  if (File.Exists(CC_FFilePath.Text) == true)
+                  {
+                      if (CC_CFileMD5.IsChecked == true)
+                      {
+                          string CCFILEI = @CC_FFilePath.Text;
+                          string CCFILEO;
+                          using (var md5 = MD5.Create())
+                          {
+                              using (var CCFILELINE = new BufferedStream(File.OpenRead(CCFILEI), 1200000))
+                              {
+                                  {
+                                      var HASH = md5.ComputeHash(CCFILELINE);
+                                      CCFILEO = BitConverter.ToString(HASH).Replace("-", "");
+                                      CC_FFileMD5.Text = CCFILEO;
+                                  }
+                              }
+                          }
+                      }
+                      else
+                      {
+                          CC_FFileMD5.Text = "";
+                      }
+
+                      if (CC_CFileSHA1.IsChecked == true)
+                      {
+                          string CCFILEI = @CC_FFilePath.Text;
+                          string CCFILEO;
+                          using (var sha1 = SHA1.Create())
+                          {
+                              using (var CCFILELINE = new BufferedStream(File.OpenRead(CCFILEI), 1200000))
+                              {
+                                  {
+                                      var HASH = sha1.ComputeHash(CCFILELINE);
+                                      CCFILEO = BitConverter.ToString(HASH).Replace("-", "");
+                                      CC_FFileSHA1.Text = CCFILEO;
+                                  }
+                              }
+                          }
+                      }
+                      else
+                      {
+                          CC_FFileSHA1.Text = "";
+                      }
+
+                      if (CC_CFileSHA256.IsChecked == true)
+                      {
+                          string CCFILEI = @CC_FFilePath.Text;
+                          string CCFILEO;
+                          using (var sha256 = SHA256.Create())
+                          {
+                              using (var CCFILELINE = new BufferedStream(File.OpenRead(CCFILEI), 1200000))
+                              {
+                                  {
+                                      var HASH = sha256.ComputeHash(CCFILELINE);
+                                      CCFILEO = BitConverter.ToString(HASH).Replace("-", "");
+                                      CC_FFileSHA256.Text = CCFILEO;
+                                  }
+                              }
+                          }
+                      }
+                      else
+                      {
+                          CC_FFileSHA256.Text = "";
+                      }
+
+                      if (CC_CFileSHA384.IsChecked == true)
+                      {
+                          string CCFILEI = @CC_FFilePath.Text;
+                          string CCFILEO;
+                          using (var sha384 = SHA384.Create())
+                          {
+                              using (var CCFILELINE = new BufferedStream(File.OpenRead(CCFILEI), 1200000))
+                              {
+                                  {
+                                      var HASH = sha384.ComputeHash(CCFILELINE);
+                                      CCFILEO = BitConverter.ToString(HASH).Replace("-", "");
+                                      CC_FFileSHA384.Text = CCFILEO;
+                                  }
+                              }
+                          }
+                      }
+                      else
+                      {
+                          CC_FFileSHA384.Text = "";
+                      }
+
+                      if (CC_CFileSHA512.IsChecked == true)
+                      {
+                          string CCFILEI = @CC_FFilePath.Text;
+                          string CCFILEO;
+                          using (var sha512 = SHA512.Create())
+                          {
+                              using (var CCFILELINE = new BufferedStream(File.OpenRead(CCFILEI), 1200000))
+                              {
+                                  {
+                                      var HASH = sha512.ComputeHash(CCFILELINE);
+                                      CCFILEO = BitConverter.ToString(HASH).Replace("-", "");
+                                      CC_FFileSHA512.Text = CCFILEO;
+                                  }
+                              }
+                          }
+                      }
+                      else
+                      {
+                          CC_FFileSHA512.Text = "";
+                      }
+                  }
+                  else
+                  {
+                      MessageBox.Show("You did not choose any files.", "File Input Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                  }
+        }
+
     }
 }

@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="About" Height="408.14" Width="250.582" MinHeight="408.14" MaxHeight="408.14" MinWidth="250.582" MaxWidth="250.582">
     <Grid>
-
+        <Border BorderBrush="Indigo" BorderThickness="3"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="69,24,0,0" VerticalAlignment="Top" Width="100" Name="About_Logo" Source="logo.ico"/>
+        <Label Content="WSumChecker v0.1 - Checksum Tool" HorizontalAlignment="Left" Margin="20,129,0,0" VerticalAlignment="Top" Width="203" Height="32" Name="About_L1"/>
+        <Label Content="Made by : Rafał Paczocha" Margin="45,161,29,181" Name="About_L2"/>
+        <Label Content="Version build : 0.221" Margin="54,196,20,146" Name="About_L3"/>
+        <Label Content="Last Version Update : 13.06.2019" Margin="20,327,19,10" Name="About_L4"/>
+        <Button Content="Close" HorizontalAlignment="Left" Margin="82,253,0,0" VerticalAlignment="Top" Width="75" Name="About_CloseWindow" MinWidth="75" MaxWidth="75" BorderBrush="Gray" BorderThickness="2" Height="24" MinHeight="24" MaxHeight="24" Click="About_CloseWindow_Click"/>
     </Grid>
 </Window>

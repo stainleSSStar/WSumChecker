@@ -1,0 +1,8 @@
+﻿Version : WSumChecker 0.1
+==================================================================================
+Added : File checksum calculation.
+Added : Licence Information.
+Added : Graphical UI.
+Added : About tab with information about core file.
+Added : String checksum calculation.
+==================================================================================

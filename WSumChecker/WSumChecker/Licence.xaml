@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:WSumChecker"
         mc:Ignorable="d"
         Title="Licence" Height="167.443" Width="520.058" MinHeight="167.443" MaxHeight="167.443" MinWidth="520.058" MaxWidth="520.058">
-    <Grid Margin="0,0,426,44">
+    <Grid>
+        <Border BorderBrush="Indigo" BorderThickness="3"></Border>
+        <Label Content="This project is using : GNU General Public License v3.0" HorizontalAlignment="Left" Margin="108,23,0,0" VerticalAlignment="Top" Width="310"/>
+        <Button Margin="131,49,131,52"  Name="License_OpenFile" Content="Read Full License" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="250" MaxWidth="250" BorderBrush="Gray" BorderThickness="5" Click="License_OpenFile_Click"/>
+        <Button Content="Close" HorizontalAlignment="Left" Margin="412,92,0,0" VerticalAlignment="Top" Width="75" Name="License_CloseWindow" MinWidth="75" MaxWidth="75" BorderBrush="Gray" BorderThickness="2" Height="24" MinHeight="24" MaxHeight="24" Click="License_CloseWindow_Click"/>
 
     </Grid>
 </Window>

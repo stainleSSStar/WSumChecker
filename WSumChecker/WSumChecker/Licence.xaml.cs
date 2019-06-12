@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace WSumChecker
 {
@@ -22,6 +23,31 @@ namespace WSumChecker
         public Licence()
         {
             InitializeComponent();
+        }
+
+        private void License_CloseWindow_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void License_OpenFile_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var fileToOpen = @"LICENCE.txt";
+                var process = new Process();
+                process.StartInfo = new ProcessStartInfo()
+                {
+                    UseShellExecute = true,
+                    FileName = fileToOpen
+                };
+
+                process.Start();
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show("Licence file couldn't be loaded", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
