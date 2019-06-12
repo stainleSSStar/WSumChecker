@@ -47,23 +47,24 @@
                 <Grid>
                     <Border BorderBrush="Orange" BorderThickness="3"></Border>
                     <Label Name="VC_LChooseFile" Content="Choose the file to verify : " MaxHeight="30" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="90,29,496,458" Width="300" FontSize="14" />
-                    <TextBox Name="VC_FFilePath" Text="" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="500" MinWidth="500" MaxHeight="35" MinHeight="35" Margin="90,59,296,423" FontSize="14" BorderBrush="LightBlue" BorderThickness="5"/>
-                    <Button Name="VC_BFileSearch" Content="Search..." VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="681,59,80,423" BorderBrush="Gray" BorderThickness="5"/>
+                    <TextBox Name="VC_FFilePath" Text="" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="500" MinWidth="500" MaxHeight="35" MinHeight="35" Margin="90,59,296,423" FontSize="14" BorderBrush="LightBlue" BorderThickness="5" KeyDown="VC_FFilePath_KeyDown" LostFocus="VC_FFilePath_LostFocus"/>
+                    <Button Name="VC_BFileSearch" Content="Search..." VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="681,59,80,423" BorderBrush="Gray" BorderThickness="5" Click="VC_BFileSearch_Click"/>
                     <Label Name="VC_LCompareSum" Content="Checksum to compare with : " MaxHeight="30" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="89,109,497,383" Width="300" FontSize="14" />
-                    <TextBox Name="VC_FChecksum" Text="" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="500" MinWidth="500" MaxHeight="35" MinHeight="35" Margin="90,136,296,345" FontSize="14" BorderBrush="LightBlue" BorderThickness="5"/>
-                    <Button Name="VC_BCheckSumClipboard" Content="From Clipboard" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="681,136,80,345" BorderBrush="Gray" BorderThickness="5"/>
-                    <Button Name="VC_BCompare" Content="VERIFY" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="800" MaxWidth="800" Margin="49,228,37,253" BorderBrush="DarkOliveGreen" BorderThickness="6"/>
+                    <Label Name="VC_LDetected" Content="" MaxHeight="30" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="403,176,183,311" Width="300" FontSize="14" />
+                    <TextBox Name="VC_FChecksum" Text="" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="500" MinWidth="500" MaxHeight="35" MinHeight="35" Margin="90,136,296,345" FontSize="14" BorderBrush="LightBlue" BorderThickness="5" KeyDown="VC_FChecksum_KeyDown" LostFocus="VC_FChecksum_LostFocus" />
+                    <Button Name="VC_BCheckSumClipboard" Content="From Clipboard" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="681,136,80,345" BorderBrush="Gray" BorderThickness="5" Click="VC_BCheckSumClipboard_Click"/>
+                    <Button Name="VC_BCompare" Content="VERIFY" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="800" MaxWidth="800" Margin="49,228,37,253" BorderBrush="DarkOliveGreen" BorderThickness="6" Click="VC_BCompare_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Compare Files" Name="Compare_Files">
                 <Grid>
                     <Border BorderBrush="Red" BorderThickness="3"></Border>
                     <Label Name="CF_LChooseFile" Content="Choose first file to compare : " MaxHeight="30" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="90,29,496,458" Width="300" FontSize="14" />
-                    <TextBox Name="CF_FFilePath" Text="" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="500" MinWidth="500" MaxHeight="35" MinHeight="35" Margin="90,59,296,423" FontSize="14" BorderBrush="LightBlue" BorderThickness="5"/>
-                    <Button Name="CF_BFileSearch" Content="Search..." VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="681,59,80,423" BorderBrush="Gray" BorderThickness="5"/>
+                    <TextBox Name="CF_FFilePath" Text="" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="500" MinWidth="500" MaxHeight="35" MinHeight="35" Margin="90,59,296,423" FontSize="14" BorderBrush="LightBlue" BorderThickness="5" LostFocus="CF_FFilePath_LostFocus" KeyDown="CF_FFilePath_KeyDown"/>
+                    <Button Name="CF_BFileSearch" Content="Search..." VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="681,59,80,423" BorderBrush="Gray" BorderThickness="5" Click="CF_BFileSearch_Click" />
                     <Label Name="CF_LChooseFile2" Content="Choose second file to compare : " MaxHeight="30" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="89,109,497,383" Width="300" FontSize="14" />
-                    <TextBox Name="CF_FFilePath2" Text="" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="500" MinWidth="500" MaxHeight="35" MinHeight="35" Margin="90,136,296,345" FontSize="14" BorderBrush="LightBlue" BorderThickness="5"/>
-                    <Button Name="CF_BFileSearch2" Content="Search..." VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="681,136,80,345" BorderBrush="Gray" BorderThickness="5"/>
+                    <TextBox Name="CF_FFilePath2" Text="" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="500" MinWidth="500" MaxHeight="35" MinHeight="35" Margin="90,136,296,345" FontSize="14" BorderBrush="LightBlue" BorderThickness="5" LostFocus="CF_FFilePath2_LostFocus" KeyDown="CF_FFilePath2_KeyDown"/>
+                    <Button Name="CF_BFileSearch2" Content="Search..." VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="681,136,80,345" BorderBrush="Gray" BorderThickness="5" Click="CF_BFileSearch2_Click" />
                     <GroupBox Header="To compare files provided above use the following algorithm : " HorizontalAlignment="Center" Margin="71,193,471,138" VerticalAlignment="center" Height="186" Width="344" MaxHeight="186" MinHeight="186" MaxWidth="344" MinWidth="344">
                         <Grid>
                             <CheckBox IsChecked="True" Name="CF_CusingMD5" MaxHeight="20" MaxWidth="300" MinHeight="20" MinWidth="300" Margin="0,10,36,134">Compare Using MD5 Algorithm.</CheckBox>
@@ -73,7 +74,7 @@
                             <CheckBox IsChecked="False" Name="CF_CusingSHA512" MaxHeight="20" MaxWidth="300" MinHeight="20" MinWidth="300" Margin="0,110,36,34">Compare Using SHA512 Algorithm.</CheckBox>
                         </Grid>
                     </GroupBox>
-                    <Button Name="CF_BCompare" Content="VERIFY" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="800" MaxWidth="800" Margin="45,420,41,63" BorderBrush="DarkOliveGreen" BorderThickness="6"/>
+                    <Button Name="CF_BCompare" Content="VERIFY" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="800" MaxWidth="800" Margin="45,420,41,63" BorderBrush="DarkOliveGreen" BorderThickness="6" Click="CF_BCompare_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="String Hashing" Name="String_Hashing">

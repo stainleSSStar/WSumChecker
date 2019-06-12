@@ -44,7 +44,7 @@ namespace WSumChecker
 
                 process.Start();
             }
-            catch(Exception exc)
+            catch(Exception exception)
             {
                 MessageBox.Show("Licence file couldn't be loaded", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
