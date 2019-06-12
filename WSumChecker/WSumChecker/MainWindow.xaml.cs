@@ -1215,6 +1215,49 @@ namespace WSumChecker
             }
         }
 
+        private void SH_FString_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (SH_FString.Text == "")
+                {
+                    SH_FString.Text = "";
+                    SH_FStringLength.Text = SH_FString.Text.Length + " characters";
+                }
+                else
+                {
+                    SH_FStringLength.Text = SH_FString.Text.Length + " characters";
+                }
+            }
+        }
 
+        private void SH_FString_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (SH_FString.Text == "")
+            {
+                SH_FString.Text = "";
+                SH_FStringLength.Text = SH_FString.Text.Length + " characters";
+            }
+            else
+            {
+                SH_FStringLength.Text = SH_FString.Text.Length + " characters";
+            }
+        }
+
+        private void SH_BStringHash_Click(object sender, RoutedEventArgs e) {
+            using (MD5 md5Hash = MD5.Create())
+            {
+                 
+                byte[] bytes = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(SH_FString.Text));
+
+                // Convert byte array to a string   
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                SH_FStringMD5.Text = builder.ToString().ToUpper();
+            }
+        }
     }
 }
