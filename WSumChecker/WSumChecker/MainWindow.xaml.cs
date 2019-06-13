@@ -17,26 +17,51 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Diagnostics;
 
-
+/// <summary>
+/// MAIN DECLARATION OF SOFTWARE NAMESPACE USAGE
+/// </summary>
 namespace WSumChecker
 {
+    /// <summary>
+    /// MAIN DECLARATION OF MAINWINDOW AND CHILD WINDOWS LOGICAL METHODS
+    /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// MAINWINDOW DRAWING AND FORCING ONLY ONE INSTANCE OF PROCESS
+        /// </summary>
         public MainWindow()
         {
+            /// <summary>
+            /// CREATION OF VARIABLES WITH CURRENT PROCESS INFORMATION TO PASS TO NEXT CONDITION
+            /// </summary>
             String processname = Process.GetCurrentProcess().ProcessName;
             Process[] prorun = Process.GetProcessesByName(processname);
+            /// <summary>
+            /// CONDITION THAT ENSURES ONLY ONE INSTANCE IS ENABLED BY CHECKING NUMBER OF SAME PROCESSNAMES
+            /// </summary>
+
             if (prorun.Length > 1)
             {
+                ///<summary>
+                /// SHOWS WARNING AND CLOSES CURRENT PROCESS WHEN ANOTHER INSTANCE IS ACTIVE
+                /// </summary>
                 MessageBox.Show("Application is already running!", "Application running!", MessageBoxButton.OK, MessageBoxImage.Stop);
                 Application.Current.Shutdown();
             }
             else
             {
+                ///<summary>
+                ///DRAWS USER INTERFACE WHEN NO OTHER INSTANCES ARE PRESENT
+                /// </summary>
                 InitializeComponent();
             }
         }
-
+        /// <summary>
+        /// CALCULATE CHECKSUMS METHOD FOR BUTTON SEARCH DECLARATION
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CC_BFileSearch_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ccplik = new OpenFileDialog();
@@ -92,7 +117,11 @@ namespace WSumChecker
                 MessageBox.Show("No file has been chosen.", "Opening File Cancelled!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
+        /// <summary>
+        /// FILE PATH ACCEPTANCE METHOD WHILE ENTER KEY IS PRESSED
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CC_FFilePath_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -154,7 +183,9 @@ namespace WSumChecker
                 }
             }
         }
-
+        ///<summary>
+        /// FILE ACCEPTANCE METHOD WHEN FOCUS IS LOST IN PATH FIELD
+        /// </summary>
         private void CC_FFilePath_LostFocus(object sender, RoutedEventArgs e)
         {
             if (CC_FFilePath.Text == "")
@@ -213,12 +244,18 @@ namespace WSumChecker
                 }
             }
         }
-
+        ///<summary>
+        /// FILE HASHING BUTTON ACTION
+        /// </summary>
         private void CC_BFileHash_Click(object sender, RoutedEventArgs e)
         {
             CC_BFileHash_Thread();
         }
-
+        /// <summary>
+        /// METHOD FOR COPYING OUTPUT FROM HASHING METHOD TO CLIPBOARD
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CC_BFileClipboard_Click(object sender, RoutedEventArgs e)
         {
             if (File.Exists(CC_FFilePath.Text) == true)
@@ -267,7 +304,11 @@ namespace WSumChecker
             }
 
         }
-
+        /// <summary>
+        /// METHOD FOR CREATION OF A FILE WITH FILE DETAILS
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CC_BFileExport_Click(object sender, RoutedEventArgs e)
         {
             if (CC_FFilePath.Text != "")
@@ -315,8 +356,6 @@ namespace WSumChecker
                     ccpliksave.FilterIndex = 1;
                     ccpliksave.Title = "Choose destination : ";
                     ccpliksave.DefaultExt = "txt";
-                    // ccpliksave.CheckFileExists = true;
-                    // ccpliksave.CheckPathExists = true;
                     ccpliksave.ShowDialog();
                     String ccpliksavepath = "";
                     ccpliksavepath = ccpliksave.FileName;
@@ -367,12 +406,20 @@ namespace WSumChecker
             }
 
         }
-
+        /// <summary>
+        /// METHOD FOR EXITING THE APPLICATION
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Unload(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
+        /// <summary>
+        /// METHOD FOR CREATION OF CHILD ABOUT WINDOW
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void About(object sender, RoutedEventArgs e)
         {
             var existingWindow = Application.Current.Windows.Cast<Window>().SingleOrDefault(x => x.Title.Equals("About"));
@@ -391,7 +438,11 @@ namespace WSumChecker
                 existingWindow.Activate();
             }
         }
-
+        /// <summary>
+        /// METHOD FOR CREATION OF CHILD LICENCE WINDOW
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Licence(object sender, RoutedEventArgs e)
         {
             var existingWindow = Application.Current.Windows.Cast<Window>().SingleOrDefault(x => x.Title.Equals("Licence"));
@@ -410,7 +461,11 @@ namespace WSumChecker
                 existingWindow.Activate();
             }
         }
-
+        /// <summary>
+        /// METHOD FOR OPENING EXTERNAL FILE CALLED CHANGELOG
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Changelog(object sender, RoutedEventArgs e)
         {
             try
@@ -430,7 +485,9 @@ namespace WSumChecker
                 MessageBox.Show("Changelog file couldn't be loaded", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
+        /// <summary>
+        /// METHOD THAT CREATES FILE HASHES
+        /// </summary>
         private void CC_BFileHash_Thread()
         {
             if (File.Exists(CC_FFilePath.Text) == true)
@@ -545,7 +602,11 @@ namespace WSumChecker
                 MessageBox.Show("You did not choose any files.", "File Input Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
+        /// <summary>
+        /// METHOD FOR CHECKING FILE EXISTENCE AND GETTING INFORMATION ABOUT FILE
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VC_FFilePath_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -568,7 +629,11 @@ namespace WSumChecker
                 }
             }
         }
-
+        /// <summary>
+        /// METHOD FOR CHECKING FILE EXISTENCE AND GETTING INFORMATION ABOUT FILE
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VC_FFilePath_LostFocus(object sender, RoutedEventArgs e)
         {
             if (VC_FFilePath.Text == "")
@@ -588,7 +653,11 @@ namespace WSumChecker
                 }
             }
         }
-
+        /// <summary>
+        /// METHOD FOR CREATING A SEARCH WINDOW FOR FILE
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VC_BFileSearch_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog vcplik = new OpenFileDialog();
@@ -606,7 +675,11 @@ namespace WSumChecker
                 MessageBox.Show("No file has been chosen.", "Opening File Cancelled!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
+        /// <summary>
+        /// METHOD FOR CHECKING CHECKSUM CORRECTION
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VC_FChecksum_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -649,7 +722,11 @@ namespace WSumChecker
                 }
             }
         }
-
+        /// <summary>
+        /// METHOD FOR CHECKING CHECKSUM CORRECTION
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VC_FChecksum_LostFocus(object sender, RoutedEventArgs e)
         {
             if (VC_FChecksum.Text == "")
@@ -690,7 +767,11 @@ namespace WSumChecker
             }
 
         }
-
+        /// <summary>
+        /// METHOD FOR CHECKSUM INPUT FROM CLIPBOARD
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VC_BCheckSumClipboard_Click(object sender, RoutedEventArgs e)
         {
             VC_FChecksum.Text = Clipboard.GetText();
@@ -731,7 +812,11 @@ namespace WSumChecker
                 }
             }
         }
-
+        /// <summary>
+        /// METHOD FOR COMPARING CHECKSUMS
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VC_BCompare_Click(object sender, RoutedEventArgs e)
         {
             if (VC_FFilePath.Text != "" && VC_FChecksum.Text != "")
@@ -862,7 +947,11 @@ namespace WSumChecker
                 MessageBox.Show("Atleast one of the fields is empty... Please provide all the information needed.", "Not enough information!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
+        /// <summary>
+        /// METHOD FOR CHECKING IF FILE EXISTS
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CF_FFilePath_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -885,7 +974,11 @@ namespace WSumChecker
                 }
             }
         }
-
+        /// <summary>
+        /// METHOD FOR CHECKING IF FILE EXISTS
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CF_FFilePath_LostFocus(object sender, RoutedEventArgs e)
         {
             if (CF_FFilePath.Text == "")
@@ -905,7 +998,11 @@ namespace WSumChecker
                 }
             }
         }
-
+        /// <summary>
+        /// METHOD FOR CHECKING IF FILE 2 EXISTS
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CF_FFilePath2_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -928,7 +1025,11 @@ namespace WSumChecker
                 }
             }
         }
-
+        /// <summary>
+        /// METHOD FOR CHECKING IF FILE 2 EXISTS
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CF_FFilePath2_LostFocus(object sender, RoutedEventArgs e)
         {
             if (CF_FFilePath2.Text == "")
@@ -948,7 +1049,11 @@ namespace WSumChecker
                 }
             }
         }
-
+        /// <summary>
+        /// METHOD FOR SEARCHING FILE
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CF_BFileSearch_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog cfplik = new OpenFileDialog();
@@ -966,7 +1071,11 @@ namespace WSumChecker
                 MessageBox.Show("No file has been chosen.", "Opening File Cancelled!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
+        /// <summary>
+        /// METHOD FOR SEARCHING FILE 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CF_BFileSearch2_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog cfplik2 = new OpenFileDialog();
@@ -984,7 +1093,11 @@ namespace WSumChecker
                 MessageBox.Show("No file has been chosen.", "Opening File Cancelled!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
+        /// <summary>
+        /// METHOD FOR COMPARING BOTH FILES
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CF_BCompare_Click(object sender, RoutedEventArgs e)
         {
             if (CF_FFilePath.Text != "" && CF_FFilePath2.Text != "")
@@ -1224,7 +1337,11 @@ namespace WSumChecker
                 MessageBox.Show("Atleast one of the fields is empty... Please provide all the information needed.", "Not enough information!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
+        /// <summary>
+        /// METHOD FOR CHECKING IF STRING EXISTS
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SH_FString_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -1250,7 +1367,11 @@ namespace WSumChecker
                 }
             }
         }
-
+        /// <summary>
+        /// METHOD FOR CHECKING IF STRING EXISTS
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SH_FString_LostFocus(object sender, RoutedEventArgs e)
         {
             if (SH_FString.Text == "")
@@ -1273,7 +1394,11 @@ namespace WSumChecker
                 SH_FStringSHA512.Text = "";
             }
         }
-
+        /// <summary>
+        /// METHOD FOR HASHING STREAM PROVIDED
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SH_BStringHash_Click(object sender, RoutedEventArgs e)
         {
             if (SH_FString.Text != "")
@@ -1359,7 +1484,11 @@ namespace WSumChecker
                 MessageBox.Show("There is nothing to hash.", "Input Notice.", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
-
+        /// <summary>
+        /// METHOD FOR GETTING OUTPUT TO CLIPBOARD
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SH_BStringClipboard_Click(object sender, RoutedEventArgs e)
         {
             if (SH_FString.Text != "")
@@ -1407,7 +1536,11 @@ namespace WSumChecker
                 MessageBox.Show("There is nothing to copy. String changed or was not provided before.", "Clipboard Input Notice.", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
-
+        /// <summary>
+        /// METHOD FOR EXPORTING TO A FILE
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SH_BStringExport_Click(object sender, RoutedEventArgs e)
         {
             if (SH_FString.Text != "")
