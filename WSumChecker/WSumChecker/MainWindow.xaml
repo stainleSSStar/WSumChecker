@@ -95,8 +95,8 @@
                     <TextBox Name="SH_FStringSHA384" Text="" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="300" MinWidth="300" MaxHeight="35" MinHeight="35" Margin="502,218,84,264" FontSize="14" BorderBrush="Gray" BorderThickness="5" IsReadOnly="True"/>
                     <Label Name="SH_LStringSHA512" Content="SHA512 Checksum : " MaxHeight="25" MinHeight="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="502,269,84,223" Width="300" FontSize="14" />
                     <TextBox Name="SH_FStringSHA512" Text="" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="300" MinWidth="300" MaxHeight="35" MinHeight="35" Margin="502,294,84,188" FontSize="14" BorderBrush="Gray" BorderThickness="5" IsReadOnly="True"/>
-                    <Button Name="SH_BStringExport" Content="Export to File" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="264,386,497,96" BorderBrush="Gray" BorderThickness="5"/>
-                    <Button Name="SH_BStringClipboard" Content="Clipboard" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="502,386,259,96" BorderBrush="Gray" BorderThickness="5" Width="125"/>
+                    <Button Name="SH_BStringExport" Content="Export to File" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="264,386,497,96" BorderBrush="Gray" BorderThickness="5" Click="SH_BStringExport_Click" />
+                    <Button Name="SH_BStringClipboard" Content="Clipboard" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="35" MaxHeight="35" MinWidth="125" MaxWidth="125" Margin="502,386,259,96" BorderBrush="Gray" BorderThickness="5" Width="125" Click="SH_BStringClipboard_Click" />
                 </Grid>
             </TabItem>
         </TabControl>
